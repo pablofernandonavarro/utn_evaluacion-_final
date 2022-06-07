@@ -3,9 +3,7 @@
     margin: 0%;
 }
 .fondo{
-     height: 80%;
+     height: 800px;
      width: 100%;
-     background-image: url("http://localhost/Pablo_fernando_navarro//app/img/Usuarios-Redes-Sociales.jpg");
-     background-size: 10rem;
-        
+     background-color: #f7efefc2;
       }
