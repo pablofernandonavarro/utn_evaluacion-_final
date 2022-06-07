@@ -1,9 +1,10 @@
 <?php
-require_once("conexion.php");
+include_once("../config.php");
+require_once(ROOT."_config/conexion.php");
 
-class mdlUsuarios
+class Usuarios
 {
-    static public function mdlguardarusuarios($tabla, $datos)
+    static public function guardarUsuario($tabla, $datos)
     {
            
         $stmt= Conexion::conectar()->prepare("INSERT INTO $tabla(usuario,clave,nombre,apellido,edad,email,sitio_web)values(:USUARIO, :CLAVE, :NOMBRE, :APELLIDO, :EDAD, :EMAIL, :SITIO_WEB)");
@@ -27,3 +28,12 @@ class mdlUsuarios
         $stmt = null;
     }
 }
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,10 @@
 <?php
-include_once('modelo.usuario.php');
+include_once("../config.php");
+include_once(ROOT."_config/conexion.php");
+include_once(ROOT.'model/Usuario.php');
 
-class ctrUsuarios{
-    static public function ctrGuardarUsuario()
+class controllerUser{
+    static public function insertUser()
     {
         if (isset($_POST['usuario'])) {
             $encriptarPassword = crypt($_POST['clave'], '$5$rounds=5000$usesomesillystringforsalt$');
@@ -16,7 +18,7 @@ class ctrUsuarios{
                 'sitio_web' => $_POST['sitio_web']               
             );
             $tabla = "usuario";
-            $respuesta = mdlUsuarios::mdlguardarusuarios($tabla, $datos);
+            $respuesta = controllerUser::insertUser($tabla, $datos);
         }
     }
 }
