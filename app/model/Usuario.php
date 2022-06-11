@@ -1,6 +1,6 @@
 <?php
-include_once("../config.php");
-require_once(ROOT."_config/conexion.php");
+include_once("../../config.php");
+require_once(ROOT."app/_config/conexion.php");
 
 class Usuarios
 {
@@ -27,8 +27,28 @@ class Usuarios
         $stmt->closeCursor();
         $stmt = null;
     }
-}
+   static public function extrerUsuarios(){
 
+    require_once(ROOT."app/_config/conexion.php");
+
+
+    $stmt= Conexion::conectar()->prepare("SELECT * FROM usuarios");
+         
+    if ($stmt->execute()) {
+        
+      
+         $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         $stmt->closeCursor();
+         return $usuarios;
+    } else {
+        echo "error";
+    }
+    $stmt->closeCursor();
+    $stmt = null;
+   
+   }
+
+}
 
 
 
